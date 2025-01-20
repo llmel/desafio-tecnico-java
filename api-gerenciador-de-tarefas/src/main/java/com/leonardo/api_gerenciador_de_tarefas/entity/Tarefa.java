@@ -31,9 +31,7 @@ public class Tarefa {
         return idTarefa;
     }
 
-    public void setIdTarefa(Integer idTarefa) {
-        this.idTarefa = idTarefa;
-    }
+    public void setIdTarefa(Integer idTarefa) { this.idTarefa = idTarefa; }
 
     public String getTitulo() {
         return titulo;
