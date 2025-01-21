@@ -28,6 +28,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: List current directory
+        run: ls -la
+
+      - name: List target directory contents
+        run: ls -la ./api-gerenciador-de-tarefas/target
+
       - name: Debug variables
         run: |
           echo "App Name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}"
