@@ -80,12 +80,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>com.leonardo.api_gerenciador_de_tarefas</mainClass>
-					<jvmArguments>
-						-Dserver.port=80
-					</jvmArguments>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
