@@ -19,6 +19,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        working-directory: ./api-gerenciador-de-tarefas
 
   deploy:
     runs-on: ubuntu-latest
