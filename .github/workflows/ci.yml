@@ -24,10 +24,21 @@ jobs:
       - name: List target directory
         run: ls -l ./api-gerenciador-de-tarefas/target
 
+      - name: Upload JAR as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-jar
+          path: ./api-gerenciador-de-tarefas/target/api-gerenciador-de-tarefas-0.0.1-SNAPSHOT.jar
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Download JAR Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my-jar
+
       - name: List current directory
         run: ls -la
 
@@ -44,4 +55,4 @@ jobs:
         with:
           app-name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}
           publish-profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}
-          package: './api-gerenciador-de-tarefas/target/api-gerenciador-de-tarefas-0.0.1-SNAPSHOT.jar'
+          package: 'api-gerenciador-de-tarefas-0.0.1-SNAPSHOT.jar'
