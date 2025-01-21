@@ -33,4 +33,4 @@ jobs:
         with:
           app-name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}
           publish-profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}
-          package: './api-gerenciador-de-tarefas/target/*.jar'
+          package: './api-gerenciador-de-tarefas/target/api-gerenciador-de-tarefas-0.0.1-SNAPSHOT.jar'
