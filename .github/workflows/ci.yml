@@ -28,6 +28,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Debug variables
+        run: |
+          echo "App Name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}"
+          echo "Publish Profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}" 
+
       - name: Deploy to Azure
         uses: Azure/webapps-deploy@v2
         with:
