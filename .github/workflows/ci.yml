@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - develop
+      - 'release/**'
+      - 'main' 
 
 jobs:
   build:
@@ -18,10 +20,7 @@ jobs:
           java-version: '21'
 
       - name: Build with Maven
-        run: |
-          if [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
-            mvn clean package -DskipTests -Dspring.profiles.active=dev
-          fi
+        run: mvn clean package -DskipTests
         working-directory: ./api-gerenciador-de-tarefas
 
       - name: List target directory
@@ -45,14 +44,9 @@ jobs:
       - name: List current directory
         run: ls -la
 
-      - name: Debug variables
-        run: |
-          echo "App Name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}"
-          echo "Publish Profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}" 
-
       - name: Deploy to Azure
         uses: Azure/webapps-deploy@v2
         with:
           app-name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}
-          publish-profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}
+          publish-profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV || github.ref == 'refs/heads/main' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PROD || github.ref == 'refs/heads/release/*' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_QAS }}
           package: 'api-gerenciador-de-tarefas-0.0.1-SNAPSHOT.jar'
