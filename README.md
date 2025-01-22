@@ -25,15 +25,15 @@ Instruções para rodar a aplicação localmente:
 	- Aplicações spring boot rodam por padrão na porta 8080.
 
 Instruções para utilizar a aplicação publicada na internet:
-	- Criei o ambiente público da aplicação na nuvem Azure
-	- São 3 serviços de aplicativo, um para cada ambiente
-	- Para utilizar a API em ambientes de dev, qas ou prod, seguem links base da aplicação publicada em cada ambiente:
-		- Ambiente dev: https://desafiojavadev-g7a5e3ddfbeddbcz.brazilsouth-01.azurewebsites.net 
-		- Ambiente qas: https://desafiojavaqas-dyaaedfrdrg8d8gq.brazilsouth-01.azurewebsites.net
-		- Ambiente prod: https://desafiojavaprod-bhbxega9fmexc4cz.brazilsouth-01.azurewebsites.net		
+- Criei o ambiente público da aplicação na nuvem Azure
+- São 3 serviços de aplicativo, um para cada ambiente
+- Para utilizar a API em ambientes de dev, qas ou prod, seguem links base da aplicação publicada em cada ambiente:
+    - Ambiente dev: https://desafiojavadev-g7a5e3ddfbeddbcz.brazilsouth-01.azurewebsites.net 
+    - Ambiente qas: https://desafiojavaqas-dyaaedfrdrg8d8gq.brazilsouth-01.azurewebsites.net
+    - Ambiente prod: https://desafiojavaprod-bhbxega9fmexc4cz.brazilsouth-01.azurewebsites.net		
 
-		- Observação importante: Esses ambientes no Azure estão em conta gratuita, então ao tentar acessar via navegador ou fazer alguma requisição via postman, insomnia etc, vai demorar alguns minutos a primeira resposta porque é como se ele fosse inicializar a aplicação.
+- Observação importante: Esses ambientes no Azure estão em conta gratuita, então ao tentar acessar via navegador ou fazer alguma requisição via postman, insomnia etc, vai demorar alguns minutos a primeira resposta porque é como se ele fosse inicializar a aplicação.
 
-	- Em relação ao banco de dados, eu tive que usar schemas diferentes para cada ambiente, pois só é possível criar um servidor e uma base de dados gratuita por conta de usuário.
-	- A construção e implantação (build e deploy) da API nos ambientes foi automatizada via Github Actions.
+- Em relação ao banco de dados, eu tive que usar schemas diferentes para cada ambiente, pois só é possível criar um servidor e uma base de dados gratuita por conta de usuário.
+- A construção e implantação (build e deploy) da API nos ambientes foi automatizada via Github Actions.
 
