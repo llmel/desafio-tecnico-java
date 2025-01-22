@@ -47,6 +47,6 @@ jobs:
       - name: Deploy to Azure
         uses: Azure/webapps-deploy@v2
         with:
-          app-name: ${{ github.ref == 'refs/heads/develop' && 'desafiojavadev' }}
+          app-name: api-gerenciador-de-tarefas
           publish-profile: ${{ github.ref == 'refs/heads/develop' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV || github.ref == 'refs/heads/main' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PROD || startsWith(github.ref, 'refs/heads/release/') && secrets.AZURE_WEBAPP_PUBLISH_PROFILE_QAS }}
           package: 'api-gerenciador-de-tarefas-0.0.1-SNAPSHOT.jar'
